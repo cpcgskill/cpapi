@@ -36,6 +36,9 @@ class MItForIt(object):
         self.__obj = obj
         self.__obj.reset()
 
+    def __next__(self):
+        return self.next()
+
     def next(self):
         if self.__CP_is_start:
             self.__CP_is_start = False

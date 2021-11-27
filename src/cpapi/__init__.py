@@ -26,12 +26,7 @@ u"""
 """
 # 初始化MayaApi
 # 如果不在此处初始化会导致未知的错误
-import maya.OpenMaya as _
-import maya.OpenMayaAnim as _
-import maya.OpenMayaUI as _
-import maya.OpenMayaFX as _
-import maya.OpenMayaRender as _
-import maya.OpenMayaMPx as _
+import cpapi.init_imp
 
 from cpapi import (
     __OpenMaya__,
@@ -41,6 +36,7 @@ from cpapi import (
     __OpenMayaUI__,
     __OpenMayaMPx__,
 )
+
 from cpapi import (
     __OpenMaya_it__,
     __OpenMayaAnim_it__

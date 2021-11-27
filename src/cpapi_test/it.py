@@ -27,4 +27,4 @@ import cpapi
 
 imp.reload(cpapi)
 from cpapi.all import MItDependencyNodes, MGlobal
-MGlobal.displayWarning("{}{}".format("场景节点有>> ", str([i.thisNode() for i in MItDependencyNodes()])))
+MGlobal.displayWarning("场景节点有： {}".format([i.thisNode() for i in MItDependencyNodes()]))

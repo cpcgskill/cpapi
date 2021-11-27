@@ -16,7 +16,7 @@ OpenMaya api 封装
 from __future__ import unicode_literals, print_function
 from cpapi.all import MItDependencyNodes, MGlobal
 
-MGlobal.displayWarning("{}{}".format("场景节点有>> ", str([i.thisNode() for i in MItDependencyNodes()])))
+MGlobal.displayWarning("场景节点有： {}".format([i.thisNode() for i in MItDependencyNodes()]))
 ```
 
 ## 功能介绍

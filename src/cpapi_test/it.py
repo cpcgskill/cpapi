@@ -10,6 +10,8 @@ u"""
 :bilibili: https://space.bilibili.com/351598127
 
 """
+from __future__ import unicode_literals, print_function
+
 try:
     import maya.standalone
 
@@ -17,6 +19,7 @@ try:
 except:
     pass
 import cpapi.OpenMaya as OpenMaya
+
 s = OpenMaya.MItDependencyNodes()
 for i in s:
     print(i)

@@ -1,6 +1,6 @@
 # -*-coding:utf-8 -*-
 u"""
-:创建时间: 2021/11/27 21:18
+:创建时间: 2021/11/28 0:37
 :作者: 苍之幻灵
 :我的主页: https://cpcgskill.com
 :QQ: 2921251087
@@ -10,6 +10,16 @@ u"""
 
 """
 import inspect
+
+def init_maya():
+    try:
+        import maya.standalone
+
+        maya.standalone.initialize(name='python')
+    except:
+        pass
+
+
 
 def get_module_names(module):
     return (i for i in dir(module) if i[0] == "M" and not "_" in i and inspect.isclass(getattr(module, i)))
@@ -33,15 +43,3 @@ def get_all_names():
         get_module_names(OpenMayaMPx),
     ]
     return (t for i in names for t in i)
-
-
-def print_module_names(module):
-    print("[{}]".format(
-        ", \n".join(('"{}"'.format(i) for i in get_module_names(module)))
-    ))
-
-
-def print_all_names():
-    print("[{}]".format(
-        ", \n".join(('"{}"'.format(i) for i in get_all_names()))
-    ))

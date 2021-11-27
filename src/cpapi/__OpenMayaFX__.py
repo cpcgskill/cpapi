@@ -9,5 +9,5 @@ u"""
 :aboutcg: https://www.aboutcg.org/teacher/54335
 :bilibili: https://space.bilibili.com/351598127
 """
-import maya.OpenMayaFX as OpenMayaFX
-from maya.OpenMayaFX import *
+from ._api import OpenMayaFX
+from ._api.OpenMayaFX import *

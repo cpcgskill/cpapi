@@ -10,40 +10,9 @@ u"""
 
 """
 import functools
-from .all import MObject, MSelectionList, MGlobal, \
-    MItDependencyNodes, MItDag, MItSelectionList, \
-    MFnDependencyNode, MFnDagNode, MFn
-
-
-class NodeGen(object):
-    def __init__(self, it):
-        self.it = (i for i in it)
-
-    def to_list(self, key=None):
-        if key is None:
-            return [i for i in self.node_objects()]
-        else:
-            return [key(i) for i in self.node_objects()]
-
-    def node_objects(self):
-        return (i for i in self.it)
-
-    def mfn(self):
-        return (MFnDependencyNode(i) for i in self.node_objects())
-
-    def filter(self, key):
-        return NodeGen((i for i in self.node_objects() if key(i)))
-
-    def filter_type(self, t_name):
-        return self.filter(key=lambda i: MFnDependencyNode(i).typeName() == t_name)
-
-
-def node_gen(fn):
-    @functools.wraps(fn)
-    def _(*args, **kwargs):
-        return NodeGen(fn())
-
-    return _
+from .all import (MObject, MSelectionList, MGlobal,
+                  MItDependencyNodes, MItDag, MItSelectionList,
+                  MFnDependencyNode, MFnDagNode, MFn)
 
 
 def _re_decorator(key):

@@ -24,9 +24,12 @@ u"""
 
 
 """
+import os
 # 初始化MayaApi
 # 如果不在此处初始化会导致未知的错误
 import cpapi.init_imp
+
+from cpapi import _api
 
 from cpapi import (
     __OpenMaya__,
@@ -58,10 +61,10 @@ from cpapi import (
 from cpapi import all
 from cpapi import iter
 
-DEBUG = True
-if DEBUG:
+if os.environ.get("CPAPI_DEBUG"):
     from imp import reload
 
+    reload(_api)
     reload(__OpenMaya__)
     reload(__OpenMayaAnim__)
     reload(__OpenMayaFX__)

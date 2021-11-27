@@ -9,5 +9,5 @@ u"""
 :aboutcg: https://www.aboutcg.org/teacher/54335
 :bilibili: https://space.bilibili.com/351598127
 """
-import maya.OpenMayaMPx as OpenMayaMPx
-from maya.OpenMayaMPx import *
+from ._api import OpenMayaMPx
+from ._api.OpenMayaMPx import *

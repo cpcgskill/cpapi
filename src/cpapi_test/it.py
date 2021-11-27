@@ -18,8 +18,14 @@ try:
     maya.standalone.initialize(name='python')
 except:
     pass
+import os
+import imp
+
+os.environ["CPAPI_DEBUG"] = "on"
+
+import cpapi
+imp.reload(cpapi)
+
 from cpapi.all import MItDependencyNodes
 
-s = MItDependencyNodes()
-for i in s:
-    print(i)
+print([i.thisNode() for i in MItDependencyNodes()])

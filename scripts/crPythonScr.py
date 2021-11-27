@@ -18,7 +18,7 @@ for i in class_list:
 string_list.append(
         "__all__ = [" + ", ".join(['"{}"'.format(i) for i in class_list]) + "]"
                    )
-print "\n".join(string_list)
+print("\n".join(string_list))
 
 # import maya.OpenMaya as om
 # import re

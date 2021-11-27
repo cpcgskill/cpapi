@@ -9,5 +9,5 @@ u"""
 :aboutcg: https://www.aboutcg.org/teacher/54335
 :bilibili: https://space.bilibili.com/351598127
 """
-import maya.OpenMayaRender as OpenMayaRender
-from maya.OpenMayaRender import *
+from ._api import OpenMayaRender
+from ._api.OpenMayaRender import *

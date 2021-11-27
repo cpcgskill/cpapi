@@ -9,5 +9,5 @@ u"""
 :aboutcg: https://www.aboutcg.org/teacher/54335
 :bilibili: https://space.bilibili.com/351598127
 """
-import maya.OpenMayaAnim as OpenMayaAnim
-from maya.OpenMayaAnim import *
+from ._api import OpenMayaAnim
+from ._api.OpenMayaAnim import *

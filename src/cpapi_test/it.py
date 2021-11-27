@@ -24,8 +24,7 @@ import imp
 os.environ["CPAPI_DEBUG"] = "on"
 
 import cpapi
+
 imp.reload(cpapi)
-
-from cpapi.all import MItDependencyNodes
-
-print([i.thisNode() for i in MItDependencyNodes()])
+from cpapi.all import MItDependencyNodes, MGlobal
+MGlobal.displayWarning("{}{}".format("场景节点有>> ", str([i.thisNode() for i in MItDependencyNodes()])))

@@ -33,3 +33,15 @@ def get_all_names():
         get_module_names(OpenMayaMPx),
     ]
     return (t for i in names for t in i)
+
+
+def print_module_names(module):
+    print("[{}]".format(
+        ", \n".join(('"{}"'.format(i) for i in get_module_names(module)))
+    ))
+
+
+def print_all_names():
+    print("[{}]".format(
+        ", \n".join(('"{}"'.format(i) for i in get_all_names()))
+    ))

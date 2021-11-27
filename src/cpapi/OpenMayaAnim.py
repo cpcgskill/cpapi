@@ -9,7 +9,42 @@ u"""
 :aboutcg: https://www.aboutcg.org/teacher/54335
 :bilibili: https://space.bilibili.com/351598127
 """
-from maya.OpenMayaAnim import *
 from .__OpenMayaAnim__ import *
 from .__OpenMayaAnim_it__ import MItKeyframe
 from .__OpenMayaAnim_array__ import MAnimCurveClipboardItemArray
+
+__all__ = ["MAnimControl",
+           "MAnimCurveChange",
+           "MAnimCurveClipboard",
+           "MAnimCurveClipboardItem",
+           "MAnimCurveClipboardItemArray",
+           "MAnimMessage",
+           "MAnimUtil",
+           "MFnAnimCurve",
+           "MFnBlendShapeDeformer",
+           "MFnCharacter",
+           "MFnClip",
+           "MFnGeometryFilter",
+           "MFnHikEffector",
+           "MFnIkEffector",
+           "MFnIkHandle",
+           "MFnIkJoint",
+           "MFnIkSolver",
+           "MFnKeyframeDelta",
+           "MFnKeyframeDeltaAddRemove",
+           "MFnKeyframeDeltaBlockAddRemove",
+           "MFnKeyframeDeltaBreakdown",
+           "MFnKeyframeDeltaInfType",
+           "MFnKeyframeDeltaMove",
+           "MFnKeyframeDeltaScale",
+           "MFnKeyframeDeltaTangent",
+           "MFnKeyframeDeltaWeighted",
+           "MFnLattice",
+           "MFnLatticeDeformer",
+           "MFnMotionPath",
+           "MFnSkinCluster",
+           "MFnWeightGeometryFilter",
+           "MFnWireDeformer",
+           "MIkHandleGroup",
+           "MIkSystem",
+           "MItKeyframe"]

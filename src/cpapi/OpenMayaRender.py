@@ -9,5 +9,39 @@ u"""
 :aboutcg: https://www.aboutcg.org/teacher/54335
 :bilibili: https://space.bilibili.com/351598127
 """
-from maya.OpenMayaRender import *
 from .__OpenMayaRender__ import *
+
+__all__ = ["MCommonRenderSettingsData",
+           "MD3D9Renderer",
+           "MDrawProcedureBase",
+           "MFnImageSource",
+           "MFnRenderLayer",
+           "MFnRenderPass",
+           "MGLFunctionTable",
+           "MGeometryData",
+           "MGeometryLegacy",
+           "MGeometryList",
+           "MGeometryManager",
+           "MGeometryPrimitive",
+           "MGeometryRequirementsLegacy",
+           "MHardwareRenderer",
+           "MHwTextureManager",
+           "MHwrCallback",
+           "MLightLinks",
+           "MRenderCallback",
+           "MRenderData",
+           "MRenderProfile",
+           "MRenderSetup",
+           "MRenderSetupPrivate",
+           "MRenderShadowData",
+           "MRenderTargetLegacy",
+           "MRenderUtil",
+           "MRenderView",
+           "MRenderingInfo",
+           "MSwatchRenderBase",
+           "MSwatchRenderRegister",
+           "MUniformParameter",
+           "MUniformParameterList",
+           "MVaryingParameter",
+           "MVaryingParameterList",
+           "MViewportRenderer"]

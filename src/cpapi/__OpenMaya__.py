@@ -12,8 +12,6 @@ u"""
 import maya.OpenMaya as OpenMaya
 from maya.OpenMaya import *
 
-__all__ = ["MMatrix", "MPoint", "MFloatPoint", "MVector", "MFloatVector"]
-
 ScriptUtil = OpenMaya.MScriptUtil()
 
 

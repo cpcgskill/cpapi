@@ -9,5 +9,33 @@ u"""
 :aboutcg: https://www.aboutcg.org/teacher/54335
 :bilibili: https://space.bilibili.com/351598127
 """
-from maya.OpenMayaFX import *
 from .__OpenMayaFX__ import *
+
+__all__ = ["MDynSweptLine",
+           "MDynSweptTriangle",
+           "MDynamicsUtil",
+           "MFnAirField",
+           "MFnDragField",
+           "MFnDynSweptGeometryData",
+           "MFnField",
+           "MFnFluid",
+           "MFnGravityField",
+           "MFnInstancer",
+           "MFnNIdData",
+           "MFnNObjectData",
+           "MFnNewtonField",
+           "MFnParticleSystem",
+           "MFnPfxGeometry",
+           "MFnRadialField",
+           "MFnTurbulenceField",
+           "MFnUniformField",
+           "MFnVolumeAxisField",
+           "MFnVortexField",
+           "MHairSystem",
+           "MRenderLine",
+           "MRenderLineArray",
+           "MnCloth",
+           "MnObject",
+           "MnParticle",
+           "MnRigid",
+           "MnSolver"]

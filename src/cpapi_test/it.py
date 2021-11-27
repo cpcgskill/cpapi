@@ -18,8 +18,8 @@ try:
     maya.standalone.initialize(name='python')
 except:
     pass
-import cpapi.OpenMaya as OpenMaya
 from cpapi.all import MItDependencyNodes
+
 s = MItDependencyNodes()
 for i in s:
     print(i)

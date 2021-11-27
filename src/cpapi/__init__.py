@@ -55,6 +55,7 @@ from cpapi import (
     OpenMayaUI,
     OpenMayaMPx,
 )
+from cpapi import all
 from cpapi import iter
 
 DEBUG = True
@@ -77,6 +78,7 @@ if DEBUG:
     reload(OpenMayaRender)
     reload(OpenMayaUI)
     reload(OpenMayaMPx)
+    reload(all)
     reload(iter)
 
 __all__ = [
@@ -86,5 +88,6 @@ __all__ = [
     "OpenMayaRender",
     "OpenMayaUI",
     "OpenMayaMPx",
+    "all",
     "iter"
 ]

@@ -19,7 +19,7 @@ try:
 except:
     pass
 import cpapi.OpenMaya as OpenMaya
-
-s = OpenMaya.MItDependencyNodes()
+from cpapi.all import MItDependencyNodes
+s = MItDependencyNodes()
 for i in s:
     print(i)

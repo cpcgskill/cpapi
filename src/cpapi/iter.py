@@ -10,7 +10,7 @@ u"""
 
 """
 import functools
-from maya.OpenMaya import MObject, MSelectionList, MGlobal, \
+from .all import MObject, MSelectionList, MGlobal, \
     MItDependencyNodes, MItDag, MItSelectionList, \
     MFnDependencyNode, MFnDagNode, MFn
 

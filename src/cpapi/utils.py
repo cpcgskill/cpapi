@@ -13,27 +13,6 @@ from .all import *
 from . import iter
 
 
-def mobject_to_mdagpath(o):
-    """
-    :type o: MObject
-    :rtype: MDagPath
-    """
-    return MDagPath.getAPathTo(o)
-
-
-def mdagpath_to_mobject(p):
-    """
-
-    :type p: MDagPath
-    :rtype: MObject
-    """
-    sel = MSelectionList()
-    sel.add(p)
-    o = MObject()
-    sel.getDependNode(0, o)
-    return o
-
-
 def _name_to_mselectionlist(n):
     """
     :type n: str|unicode
@@ -64,23 +43,52 @@ def _mselectionlist_to_mdagpath(sel):
     return p
 
 
-def name_to_mobject(n):
+def _mselectionlist_to_components(sel):
     """
-    :type n: str|unicode
-    :rtype: MObject
+
+    :type sel: MSelectionList
+    :rtype: (MDagPath, MObject)
     """
-    return _mselectionlist_to_mobject(_name_to_mselectionlist(n))
+    p = MDagPath()
+    o = MObject()
+    sel.getDagPath(0, p, o)
+    return (p, o)
 
 
 def _mselectionlist_to_components_mobject(sel):
     """
 
     :type sel: MSelectionList
-    :return: MObject
+    :rtype: MObject
     """
-    obj = MObject()
-    sel.getDagPath(0, MDagPath(), obj)
-    return obj
+    return _mselectionlist_to_components(sel)[0]
+
+
+def mobject_to_mdagpath(o):
+    """
+    :type o: MObject
+    :rtype: MDagPath
+    """
+    return MDagPath(MDagPath.getAPathTo(o))
+
+
+def mdagpath_to_mobject(p):
+    """
+
+    :type p: MDagPath
+    :rtype: MObject
+    """
+    sel = MSelectionList()
+    sel.add(p)
+    return _mselectionlist_to_mobject(sel)
+
+
+def name_to_mobject(n):
+    """
+    :type n: str|unicode
+    :rtype: MObject
+    """
+    return _mselectionlist_to_mobject(_name_to_mselectionlist(n))
 
 
 def name_to_mdagpath(n):
@@ -91,10 +99,18 @@ def name_to_mdagpath(n):
     return _mselectionlist_to_mdagpath(_name_to_mselectionlist(n))
 
 
+def name_to_components(n):
+    """
+    :type n: str|unicode
+    :rtype: (MDagPath, MObject)
+    """
+    return _mselectionlist_to_components(_name_to_mselectionlist(n))
+
+
 def name_to_components_mobject(n):
     """
     :type n: str|unicode
-    :return: MObject
+    :rtype: MObject
     """
     return _mselectionlist_to_components_mobject(_name_to_mselectionlist(n))
 

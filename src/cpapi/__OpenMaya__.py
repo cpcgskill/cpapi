@@ -9,18 +9,31 @@ u"""
 :aboutcg: https://www.aboutcg.org/teacher/54335
 :bilibili: https://space.bilibili.com/351598127
 """
+from __future__ import unicode_literals, print_function
 from ._api import OpenMaya
 from ._api.OpenMaya import *
 
 ScriptUtil = OpenMaya.MScriptUtil()
 
 
-class MDagPath(OpenMaya.MDagPath):
-    def __repr__(self):
-        return 'MDagPath("{}")'.format(self.fullPathName())
+class MObject(OpenMaya.MObject):
+    def __str__(self):
+        if self.isNull():
+            return "MObject(null)"
+        else:
+            return 'MObject(not null, type={})'.format(self.apiTypeStr())
 
+
+class MDagPath(OpenMaya.MDagPath):
     def __str__(self):
         return 'MDagPath("{}")'.format(self.fullPathName())
+
+
+class MSelectionList(OpenMaya.MSelectionList):
+    def __str__(self):
+        names = []
+        self.getSelectionStrings(names)
+        return 'MSelectionList({})'.format(names)
 
 
 def newMatrix(matrix=(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1), cls=OpenMaya.MMatrix):

@@ -22,5 +22,6 @@ def test():
     print("test mdagpath_to_mobject>> ", cputils.mdagpath_to_mobject(p))
     print("test name_to_mobject>> ", cputils.name_to_mobject("joint1"))
     print("test name_to_mdagpath>> ", cputils.name_to_mdagpath("joint1"))
+    print("test name_to_components>> ", cputils.name_to_components("joint1"))
     print("test name_to_components_mobject>> ", cputils.name_to_components_mobject("joint1"))
     print("test active_selectionlist>> ", cputils.active_selectionlist())

@@ -71,19 +71,23 @@ def test():
     print("test mdagpath_to_mobject>> ", cputils.mdagpath_to_mobject(p))
     print("test name_to_mobject>> ", cputils.name_to_mobject("joint1"))
     print("test name_to_mdagpath>> ", cputils.name_to_mdagpath("joint1"))
+    print("test name_to_components>> ", cputils.name_to_components("joint1"))
     print("test name_to_components_mobject>> ", cputils.name_to_components_mobject("joint1"))
     print("test active_selectionlist>> ", cputils.active_selectionlist())
+
+
 test()
 ```
 
 ```
 test selected>>  []
-test mobject_to_mdagpath>>  <maya.OpenMaya.MDagPath; proxy of <Swig Object of type 'MDagPath *' at 0x000001CE9ABBC7B0> >
-test mdagpath_to_mobject>>  MObject<0x1ce9ade9cc0L>
-test name_to_mobject>>  MObject<0x1ce9ade97f0L>
+test mobject_to_mdagpath>>  MDagPath("|joint1")
+test mdagpath_to_mobject>>  MObject(not null, type=kJoint)
+test name_to_mobject>>  MObject(not null, type=kJoint)
 test name_to_mdagpath>>  MDagPath("|joint1")
-test name_to_components_mobject>>  MObject<0x1ce9ade97f0L>
-test active_selectionlist>>  MSelectionList<0x1ce9ade97f0L>
+test name_to_components>>  (MDagPath("|joint1"), MObject(null))
+test name_to_components_mobject>>  MDagPath("|joint1")
+test active_selectionlist>>  MSelectionList([])
 ```
 
 ### 版权说明

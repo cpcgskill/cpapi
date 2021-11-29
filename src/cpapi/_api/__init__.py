@@ -10,6 +10,7 @@ u"""
 
 """
 import os
+from . import _run_lib
 from . import (OpenMaya,
                OpenMayaAnim,
                OpenMayaFX,
@@ -20,6 +21,7 @@ from . import (OpenMaya,
 if os.environ.get("CPAPI_DEBUG"):
     from imp import reload
 
+    reload(_run_lib)
     [reload(m) for m in (OpenMaya,
                          OpenMayaAnim,
                          OpenMayaFX,

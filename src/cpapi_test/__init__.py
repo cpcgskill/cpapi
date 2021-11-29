@@ -9,15 +9,16 @@ u"""
 :bilibili: https://space.bilibili.com/351598127
 
 """
+from __future__ import unicode_literals, print_function
 import os
 import sys
-import imp
+from imp import reload
 
 os.environ["CPAPI_DEBUG"] = "on"
 import cpapi
 
 if not sys.modules.get("cpapi") is None:
-    imp.reload(cpapi)
+    reload(cpapi)
 
 from cpapi_test import (utils, )
 
@@ -28,4 +29,5 @@ for m in models:
 
 def test():
     for m in models:
+        print("## test models {}:".format(m))
         m.test()

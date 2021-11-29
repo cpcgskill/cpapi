@@ -27,11 +27,11 @@ u"""
 import os
 # 初始化MayaApi
 # 如果不在此处初始化会导致未知的错误
-import cpapi.init_imp
+from . import init_imp
+# 导入内部的api模块
+from . import _api
 
-from cpapi import _api
-
-from cpapi import (
+from . import (
     __OpenMaya__,
     __OpenMayaAnim__,
     __OpenMayaRender__,
@@ -40,17 +40,17 @@ from cpapi import (
     __OpenMayaMPx__,
 )
 
-from cpapi import (
+from . import (
     __OpenMaya_it__,
     __OpenMayaAnim_it__
 )
 
-from cpapi import (
+from . import (
     __OpenMaya_array__,
     __OpenMayaAnim_array__
 )
 
-from cpapi import (
+from . import (
     OpenMaya,
     OpenMayaAnim,
     OpenMayaFX,

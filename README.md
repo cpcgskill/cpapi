@@ -58,20 +58,32 @@ itdg = om.MItDag()
 #### 工具集模块
 
 ```python
-import cpapi.all as api
-import cpapi.utils as cputils
+from __future__ import unicode_literals, print_function
 
-print("test selected>> ", cputils.selected())
-o = api.MFnDependencyNode().create("joint", "joint1")
-p = cputils.mobject_to_mdagpath(o)
-print("test mobject_to_mdagpath>> ", p)
-print("test mdagpath_to_mobject>> ", cputils.mdagpath_to_mobject(p))
+
+def test():
+    import cpapi.all as api
+    import cpapi.utils as cputils
+    print("test selected>> ", cputils.selected())
+    o = api.MFnDependencyNode().create("joint", "joint1")
+    p = cputils.mobject_to_mdagpath(o)
+    print("test mobject_to_mdagpath>> ", p)
+    print("test mdagpath_to_mobject>> ", cputils.mdagpath_to_mobject(p))
+    print("test name_to_mobject>> ", cputils.name_to_mobject("joint1"))
+    print("test name_to_mdagpath>> ", cputils.name_to_mdagpath("joint1"))
+    print("test name_to_components_mobject>> ", cputils.name_to_components_mobject("joint1"))
+    print("test active_selectionlist>> ", cputils.active_selectionlist())
+test()
 ```
 
 ```
 test selected>>  []
-test mobject_to_mdagpath>>  <maya.OpenMaya.MDagPath; proxy of <Swig Object of type 'MDagPath *' at 0x000001CE99D49480> >
-test mdagpath_to_mobject>>  MObject<0x1ce9abf0128L>
+test mobject_to_mdagpath>>  <maya.OpenMaya.MDagPath; proxy of <Swig Object of type 'MDagPath *' at 0x000001CE9ABBC7B0> >
+test mdagpath_to_mobject>>  MObject<0x1ce9ade9cc0L>
+test name_to_mobject>>  MObject<0x1ce9ade97f0L>
+test name_to_mdagpath>>  MDagPath("|joint1")
+test name_to_components_mobject>>  MObject<0x1ce9ade97f0L>
+test active_selectionlist>>  MSelectionList<0x1ce9ade97f0L>
 ```
 
 ### 版权说明

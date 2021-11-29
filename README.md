@@ -8,6 +8,7 @@ OpenMaya api 封装
 - [功能介绍](#功能介绍)
     - [MayaApi数组的封装](#MayaApi数组的封装)
     - [迭代器的封装](#迭代器的封装)
+    - [迭代器模块](#迭代器模块)
     - [工具集模块](#工具集模块)
 - [版权说明](#版权说明)
 
@@ -73,6 +74,8 @@ test itdg>>  [<maya.OpenMaya.MObject; proxy of <Swig Object of type 'MObject *' 
 
 #### 迭代器模块
 
+迭代器模块与MayaApi迭代器的封装无关，这个模块是一个提供不同迭代器的模块
+
 ```python
 from __future__ import unicode_literals, print_function
 
@@ -96,7 +99,7 @@ test selected>>  <generator object <genexpr> at 0x000001CE9AFD23A8>
 ```
 
 #### 工具集模块
-
+工具集模块就是字面意思，一堆工具函数
 ```python
 from __future__ import unicode_literals, print_function
 

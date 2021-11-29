@@ -20,11 +20,11 @@ import cpapi
 if not sys.modules.get("cpapi") is None:
     reload(cpapi)
 
-from cpapi_test import (utils, )
+from cpapi_test import (all, iter, utils)
 
-models = (utils,)
+models = (all, iter, utils)
 for m in models:
-    imp.reload(m)
+    reload(m)
 
 
 def test():

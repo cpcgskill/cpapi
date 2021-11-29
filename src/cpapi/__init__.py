@@ -60,6 +60,7 @@ from cpapi import (
 )
 from cpapi import all
 from cpapi import iter
+from cpapi import utils
 
 if os.environ.get("CPAPI_DEBUG"):
     from imp import reload
@@ -83,6 +84,7 @@ if os.environ.get("CPAPI_DEBUG"):
     reload(OpenMayaMPx)
     reload(all)
     reload(iter)
+    reload(utils)
 
 __all__ = [
     "OpenMaya",
@@ -92,5 +94,6 @@ __all__ = [
     "OpenMayaUI",
     "OpenMayaMPx",
     "all",
-    "iter"
+    "iter",
+    "utils",
 ]

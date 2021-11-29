@@ -39,3 +39,17 @@ import cpapi.OpenMaya as om
 itdg = om.MItDag()
 [i for i in itdg]  # 注意迭代器循环的 “i”是迭代器itdg本身
 ```
+
+### 工具集模块
+```python
+import cpapi.all as api
+import cpapi.utils as cputils
+print("test selected>> ", cputils.selected())
+o = api.MFnDependencyNode().create("joint", "joint1")
+p = cputils.mobject_to_mdagpath(o)
+print("test mobject_to_mdagpath>> ", p)
+print("test mdagpath_to_mobject>> ", cputils.mdagpath_to_mobject(p))
+```
+test selected>>  []
+test mobject_to_mdagpath>>  <maya.OpenMaya.MDagPath; proxy of <Swig Object of type 'MDagPath *' at 0x000001CE99D49480> >
+test mdagpath_to_mobject>>  MObject<0x1ce9abf0128L>

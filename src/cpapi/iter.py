@@ -62,7 +62,6 @@ def iter_dag_node():
         it.next()
 
 
-@_mfn_from_objects(MFnDependencyNode)
 @_filter_empty_objects
 def selected_node():
     sel = MSelectionList()
@@ -73,3 +72,18 @@ def selected_node():
         it.getDependNode(obj)
         yield obj
         it.next()
+
+
+@_filter_empty_objects
+def selected():
+    sel = MSelectionList()
+    MGlobal.getActiveSelectionList(sel)
+    it = MItSelectionList(sel)
+    while not it.isDone():
+        obj = MObject()
+        it.getDependNode(obj)
+        yield obj
+        it.next()
+
+
+__all__ = ["iter_node", "iter_dag_node", "selected_node"]

@@ -12,6 +12,7 @@ u"""
 from __future__ import unicode_literals, print_function
 from utils import *
 
+
 def print_OpenMaya_code(module, header="# -*-coding:utf-8 -*-"):
     names = list(get_module_names(module))
     imp_lib = "from ._run_lib import *"
@@ -20,26 +21,21 @@ def print_OpenMaya_code(module, header="# -*-coding:utf-8 -*-"):
     from_imp_all_var = "__all__ = {}".format(repr(names))
     print("\n".join([header, imp_lib, from_imp, body, from_imp_all_var]))
 
-init_maya()
 root = r"D:\Development\python_maya\cpapi\src\cpapi\_api"
 import sys
-from maya import (
-    OpenMaya,
-    OpenMayaAnim,
-    OpenMayaFX,
-    OpenMayaRender,
-    OpenMayaUI,
-    OpenMayaMPx,
-)
 
-for m in (
-        OpenMaya,
-        OpenMayaAnim,
-        OpenMayaFX,
-        OpenMayaRender,
-        OpenMayaUI,
-        OpenMayaMPx,
-):
-    with open(root + "/{}.py".format(m.__name__.split(".")[-1]), "w") as f:
-        sys.stdout = f
-        print_OpenMaya_code(m)
+
+
+import codecs
+import json
+with codecs.open("./maya_data.json", "r", encoding="utf-8") as f:
+    data = json.load(f)
+for k,v in data["data"].items():
+    with codecs.open("{}/{}.py".format(root, k), "w", encoding="utf-8") as f:
+        header = "# -*-coding:utf-8 -*-"
+        names = v
+        imp_lib = "from ._run_lib import *"
+        from_imp = "import maya.{} as orig".format(k)
+        body = "\n".join("@base\nclass {}(orig.{}):pass".format(i, i) for i in names)
+        from_imp_all_var = "__all__ = {}".format(repr(names))
+        f.write("\n".join([header, imp_lib, from_imp, body, from_imp_all_var]))

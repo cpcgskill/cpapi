@@ -14,6 +14,15 @@ OpenMaya api 封装
 
 ### 快速开始
 
+#### 如果你的Maya有pip那么
+
+```commandline
+cd "C:\Program Files\Autodesk\Maya2022\bin"
+mayapy -m pip install cpapi
+```
+
+#### 如果没有
+
 1. 打开C:\Users\PC\Documents\maya文件夹
 2. 进入scripts文件夹，如果没有就创建它
 3. 下载完整的cpapi代码
@@ -99,7 +108,9 @@ test selected>>  <generator object <genexpr> at 0x000001CE9AFD23A8>
 ```
 
 #### 工具集模块
+
 工具集模块就是字面意思，一堆工具函数
+
 ```python
 from __future__ import unicode_literals, print_function
 

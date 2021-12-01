@@ -10,4 +10,4 @@ publish:
 	rm -fr ./dist
 	"${MAYA_PY}" -m pip install 'twine>=1.5.0'
 	"${MAYA_PY}" setup.py sdist bdist_wheel
-	"${MAYA_PY}" -m twine upload --repository testpypi dist/*
+	"${MAYA_PY}" -m twine upload --repository pypi dist/*

@@ -10,8 +10,6 @@ u"""
 工具集模块
 """
 from .all import *
-from . import iter
-
 
 def _name_to_mselectionlist(n):
     """
@@ -130,4 +128,15 @@ def selected():
     获得当前选择节点的MObject
     :rtype:list[MObject]
     """
-    return list(iter.selected())
+
+    def _():
+        sel = active_selectionlist()
+        it = MItSelectionList(sel)
+        while not it.isDone():
+            if it.itemType() == MItSelectionList.kDNselectionItem:
+                obj = MObject()
+                it.getDependNode(obj)
+                yield obj
+            it.next()
+
+    return list(_())

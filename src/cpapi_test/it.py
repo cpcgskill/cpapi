@@ -20,11 +20,15 @@ except:
     pass
 import os
 import imp
-
+import maya.cmds as mc
 os.environ["CPAPI_DEBUG"] = "on"
 
 import cpapi
 
 imp.reload(cpapi)
-from cpapi.all import MItDependencyNodes, MGlobal
-MGlobal.displayWarning("场景节点有： {}".format([i.thisNode() for i in MItDependencyNodes()]))
+from cpapi.all import MItDependencyNodes, MGlobal, MFnDependencyNode
+MGlobal.displayWarning("场景节点有： {}".format([MFnDependencyNode(i.thisNode()).name() for i in MItDependencyNodes()]))
+#
+mc.select(u"time1")
+from cpapi.utils import selected
+MGlobal.displayWarning("选择的节点有： {}".format(selected()))

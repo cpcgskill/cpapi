@@ -22,6 +22,39 @@ def _name_to_mselectionlist(n):
     return sel
 
 
+def _mdagpath_to_mselectionlist(p):
+    """
+
+    :type p: MDagPath
+    :rtype: MSelectionList
+    """
+    sel = MSelectionList()
+    sel.add(p)
+    return sel
+
+
+def _muuid_to_mselectionlist(uid):
+    """
+
+    :type uid: MUuid
+    :rtype: MSelectionList
+    """
+    sel = MSelectionList()
+    sel.add(uid)
+    return sel
+
+
+def _mobject_to_mselectionlist(o):
+    """
+
+    :type p: MObject
+    :rtype: MSelectionList
+    """
+    sel = MSelectionList()
+    sel.add(o)
+    return sel
+
+
 def _mselectionlist_to_mobject(sel):
     """
     :type sel: MSelectionList
@@ -82,15 +115,39 @@ def mobject_to_mdagpath(o):
     return MDagPath(MDagPath.getAPathTo(o))
 
 
+def mobject_to_muuid(o):
+    """
+    :type o: MObject
+    :rtype: MUuid
+    """
+    return _mselectionlist_to_muuid(_mobject_to_mselectionlist(o))
+
+
 def mdagpath_to_mobject(p):
     """
 
     :type p: MDagPath
     :rtype: MObject
     """
-    sel = MSelectionList()
-    sel.add(p)
-    return _mselectionlist_to_mobject(sel)
+    return _mselectionlist_to_mobject(_mdagpath_to_mselectionlist(p))
+
+
+def mdagpath_to_muuid(p):
+    """
+
+    :type p: MDagPath
+    :rtype: MUuid
+    """
+    return _mselectionlist_to_muuid(_mdagpath_to_mselectionlist(p))
+
+
+def muuid_to_mdagpath(uid):
+    return mobject_to_mdagpath(_mselectionlist_to_mobject(_muuid_to_mselectionlist(uid)))
+
+
+def muuid_to_mobject(uid):
+    return _mselectionlist_to_mobject(_muuid_to_mselectionlist(uid))
+
 
 
 def name_to_mobject(n):

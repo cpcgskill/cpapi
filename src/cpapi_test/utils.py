@@ -17,9 +17,17 @@ def test():
     import cpapi.utils as cputils
     print("test selected>> ", cputils.selected())
     o = api.MFnDependencyNode().create("joint", "joint1")
+    print("test mobject_to_mdagpath>> ", cputils.mobject_to_mdagpath(o))
+    print("test mobject_to_muuid>> ", cputils.mobject_to_muuid(o))
     p = cputils.mobject_to_mdagpath(o)
-    print("test mobject_to_mdagpath>> ", p)
+
     print("test mdagpath_to_mobject>> ", cputils.mdagpath_to_mobject(p))
+    print("test mdagpath_to_muuid>> ", cputils.mdagpath_to_muuid(p))
+    uid = cputils.mdagpath_to_muuid(p)
+
+    print("test muuid_to_mdagpath>> ", cputils.muuid_to_mdagpath(uid))
+    print("test muuid_to_mobject>> ", cputils.muuid_to_mobject(uid))
+
     print("test name_to_mobject>> ", cputils.name_to_mobject("joint1"))
     print("test name_to_mdagpath>> ", cputils.name_to_mdagpath("joint1"))
     print("test name_to_components>> ", cputils.name_to_components("joint1"))

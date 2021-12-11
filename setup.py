@@ -8,7 +8,7 @@ with open("README.md", "rb") as f:
 
 setuptools.setup(
     name="cpapi",
-    version="1.0.0",
+    version="1.0.1",
     author="cpcgskill",
     author_email="cpcgskill@outlook.com",
     description="OpenMaya api 封装",

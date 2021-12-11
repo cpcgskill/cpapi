@@ -11,6 +11,7 @@ u"""
 """
 from .all import *
 
+
 def _name_to_mselectionlist(n):
     """
     :type n: str|unicode
@@ -62,6 +63,17 @@ def _mselectionlist_to_components_mobject(sel):
     return _mselectionlist_to_components(sel)[0]
 
 
+def _mselectionlist_to_muuid(sel):
+    """
+
+    :type sel: MSelectionList
+    :rtype: MUuid
+    """
+    o = MObject()
+    sel.getDependNode(0, o)
+    return MFnDependencyNode(o).uuid()
+
+
 def mobject_to_mdagpath(o):
     """
     :type o: MObject
@@ -111,6 +123,14 @@ def name_to_components_mobject(n):
     :rtype: MObject
     """
     return _mselectionlist_to_components_mobject(_name_to_mselectionlist(n))
+
+
+def name_to_muuid(n):
+    """
+    :type n: str|unicode
+    :rtype: MUuid
+    """
+    return _mselectionlist_to_muuid(_name_to_mselectionlist(n))
 
 
 def active_selectionlist():

@@ -210,10 +210,9 @@ def selected():
         sel = active_selectionlist()
         it = MItSelectionList(sel)
         while not it.isDone():
-            if it.itemType() == MItSelectionList.kDNselectionItem:
-                obj = MObject()
-                it.getDependNode(obj)
-                yield obj
+            obj = MObject()
+            it.getDependNode(obj)
+            yield obj
             it.next()
 
     return list(_())

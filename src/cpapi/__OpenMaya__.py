@@ -96,7 +96,8 @@ class MMatrix(OpenMaya.MMatrix):
             return self(*item)
 
 
-class MPoint(OpenMaya.MPoint):
+class MPoint(OpenMaya.MPoint, object):
+
     def __str__(self):
         return "MPoint%s" % str((self.x, self.y, self.z))
 
@@ -113,6 +114,12 @@ class MPoint(OpenMaya.MPoint):
         self.y += other.y
         self.z += other.z
 
+    def __iter__(self):
+        yield self.x
+        yield self.y
+        yield self.z
+        yield self.w
+
 
 class MFloatPoint(OpenMaya.MFloatPoint):
     def __str__(self):
@@ -126,6 +133,17 @@ class MFloatPoint(OpenMaya.MFloatPoint):
             other = OpenMaya.MFloatVector(other)
         return OpenMaya.MFloatPoint.__add__(self, other)
 
+    def __iadd__(self, other):
+        self.x += other.x
+        self.y += other.y
+        self.z += other.z
+
+    def __iter__(self):
+        yield self.x
+        yield self.y
+        yield self.z
+        yield self.w
+
 
 class MVector(OpenMaya.MVector):
     def __str__(self):
@@ -134,6 +152,11 @@ class MVector(OpenMaya.MVector):
     def __repr__(self):
         return self.__str__()
 
+    def __iter__(self):
+        yield self.x
+        yield self.y
+        yield self.z
+
 
 class MFloatVector(OpenMaya.MFloatVector):
     def __str__(self):
@@ -141,3 +164,8 @@ class MFloatVector(OpenMaya.MFloatVector):
 
     def __repr__(self):
         return self.__str__()
+
+    def __iter__(self):
+        yield self.x
+        yield self.y
+        yield self.z

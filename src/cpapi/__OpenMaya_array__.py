@@ -10,7 +10,7 @@ u"""
 :bilibili: https://space.bilibili.com/351598127
 """
 from . import __OpenMaya__ as OpenMaya
-from .__ALL import MAyyayIt
+from .__ALL import build_maya_array_iter
 
 
 
@@ -21,7 +21,7 @@ class MAttributePatternArray(OpenMaya.MAttributePatternArray):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))
@@ -36,7 +36,7 @@ class MAttributeSpecArray(OpenMaya.MAttributeSpecArray):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))
@@ -51,7 +51,7 @@ class MCallbackIdArray(OpenMaya.MCallbackIdArray):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))
@@ -66,7 +66,7 @@ class MColorArray(OpenMaya.MColorArray):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))
@@ -81,7 +81,7 @@ class MDagPathArray(OpenMaya.MDagPathArray):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))
@@ -96,7 +96,7 @@ class MDoubleArray(OpenMaya.MDoubleArray):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))
@@ -111,7 +111,7 @@ class MFloatArray(OpenMaya.MFloatArray):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))
@@ -126,7 +126,7 @@ class MFloatPointArray(OpenMaya.MFloatPointArray):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))
@@ -141,7 +141,7 @@ class MFloatVectorArray(OpenMaya.MFloatVectorArray):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))
@@ -156,7 +156,7 @@ class MInt64Array(OpenMaya.MInt64Array):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))
@@ -171,7 +171,7 @@ class MIntArray(OpenMaya.MIntArray):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))
@@ -186,7 +186,7 @@ class MMatrixArray(OpenMaya.MMatrixArray):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))
@@ -201,7 +201,7 @@ class MObjectArray(OpenMaya.MObjectArray):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))
@@ -216,7 +216,7 @@ class MPlugArray(OpenMaya.MPlugArray):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))
@@ -231,7 +231,7 @@ class MPointArray(OpenMaya.MPointArray):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))
@@ -246,7 +246,7 @@ class MTimeArray(OpenMaya.MTimeArray):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))
@@ -261,7 +261,7 @@ class MTrimBoundaryArray(OpenMaya.MTrimBoundaryArray):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))
@@ -276,7 +276,7 @@ class MUint64Array(OpenMaya.MUint64Array):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))
@@ -291,7 +291,7 @@ class MUintArray(OpenMaya.MUintArray):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))
@@ -306,7 +306,7 @@ class MVectorArray(OpenMaya.MVectorArray):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))

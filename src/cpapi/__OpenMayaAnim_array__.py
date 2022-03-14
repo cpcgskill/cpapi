@@ -10,7 +10,7 @@ u"""
 :bilibili: https://space.bilibili.com/351598127
 """
 from . import __OpenMayaAnim__ as OpenMayaAnim
-from .__ALL import MAyyayIt
+from .__ALL import build_maya_array_iter
 
 
 
@@ -21,7 +21,7 @@ class MAnimCurveClipboardItemArray(OpenMayaAnim.MAnimCurveClipboardItemArray):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__class__.__repr__(i) for i in self]))

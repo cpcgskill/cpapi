@@ -16,3 +16,6 @@ def base(cls):
     cls.__str__ = lambda self: "{}<{}>".format(self.__class__.__name__, hex(id(self)))
     cls.__repr__ = lambda self: self.__str__()
     return cls
+
+
+__all__ = ['base']

@@ -10,41 +10,51 @@ u"""
 :bilibili: https://space.bilibili.com/351598127
 """
 
+#
+# class its(object):
+#     def __init__(self, *args):
+#         self.__its = tuple(((t for t in i) for i in args))
+#         self.__obj_size = len(args)
+#
+#     def __iter__(self):
+#         return self
+#
+#     def next(self):
+#         objs = tuple((i.next() for i in self.__its))
+#         if len(objs) != self.__obj_size:
+#             raise StopIteration
+#         return objs
 
-class its(object):
-    def __init__(self, *args):
-        self.__its = tuple(((t for t in i) for i in args))
-        self.__obj_size = len(args)
+#
+# def MAyyayIt(obj):
+#     return (obj[i] for i in range(obj.length()))
+#
+#
+# class MItForIt(object):
+#     def __init__(self, obj):
+#         self.__CP_is_start = True
+#         self.__obj = obj
+#         self.__obj.reset()
+#
+#     def __next__(self):
+#         return self.next()
+#
+#     def next(self):
+#         if self.__CP_is_start:
+#             self.__CP_is_start = False
+#         else:
+#             self.__obj.next()
+#         if self.__obj.isDone():
+#             raise StopIteration
+#         else:
+#             return self.__obj
 
-    def __iter__(self):
-        return self
 
-    def next(self):
-        objs = tuple((i.next() for i in self.__its))
-        if len(objs) != self.__obj_size:
-            raise StopIteration
-        return objs
-
-
-def MAyyayIt(obj):
+def build_maya_array_iter(obj):
     return (obj[i] for i in range(obj.length()))
 
 
-class MItForIt(object):
-    def __init__(self, obj):
-        self.__CP_is_start = True
-        self.__obj = obj
-        self.__obj.reset()
-
-    def __next__(self):
-        return self.next()
-
-    def next(self):
-        if self.__CP_is_start:
-            self.__CP_is_start = False
-        else:
-            self.__obj.next()
-        if self.__obj.isDone():
-            raise StopIteration
-        else:
-            return self.__obj
+def rebuild_maya_iter(obj):
+    while not obj.isDone():
+        yield obj
+        obj.next()

@@ -10,7 +10,7 @@ u"""
 :bilibili: https://space.bilibili.com/351598127
 """
 from . import __OpenMayaUI__ as omui
-from .__ALL import MAyyayIt
+from .__ALL import build_maya_array_iter
 
 # MMaterialArray
 
@@ -19,7 +19,7 @@ class MMaterialArray(omui.MMaterialArray):
         return self.length()
 
     def __iter__(self):
-        return MAyyayIt(self)
+        return build_maya_array_iter(self)
 
     def __repr__(self):
         return '{}[{}]'.format(str(self.__class__), ", ".join([i.__repr__() for i in self]))

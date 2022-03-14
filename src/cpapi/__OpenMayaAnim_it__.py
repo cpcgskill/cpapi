@@ -10,14 +10,14 @@ u"""
 :bilibili: https://space.bilibili.com/351598127
 """
 from . import __OpenMayaAnim__ as omaim
-from .__ALL import MItForIt
+from .__ALL import rebuild_maya_iter
 
 
 # MItKeyframe
 
 class MItKeyframe(omaim.MItKeyframe):
     def __iter__(self):
-        return MItForIt(self)
+        return rebuild_maya_iter(self)
 
 
 __all__ = ["MItKeyframe"]

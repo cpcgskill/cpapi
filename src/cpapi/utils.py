@@ -149,7 +149,6 @@ def muuid_to_mobject(uid):
     return _mselectionlist_to_mobject(_muuid_to_mselectionlist(uid))
 
 
-
 def name_to_mobject(n):
     """
     :type n: str|unicode
@@ -216,3 +215,24 @@ def selected():
             it.next()
 
     return list(_())
+
+
+ScriptUtil = MScriptUtil()
+
+
+def new_matrix(matrix):
+    u"""
+    创建MMatrix类的方法
+    :param matrix: None 或 MMatrix 或 （[[...], [...]...] 4*4 或 4*3）
+    :return: MMatrix
+    """
+    if isinstance(matrix, MMatrix):
+        return MMatrix(matrix)
+    if len(matrix) == 4:
+        matrix = [t for i in matrix for t in i]
+    if len(matrix) == 16:
+        new_obj = MMatrix()
+        ScriptUtil.createMatrixFromList(matrix, new_obj)
+        return new_obj
+    else:
+        raise RuntimeError(u"构建矩阵需要16个值")

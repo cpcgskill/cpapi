@@ -36,3 +36,5 @@ def test():
 
     print("test active_selectionlist>> ", cputils.active_selectionlist())
     print("test selected>> ", cputils.selected())
+
+    print("test new_matrix>> ", cputils.new_matrix([[0, 0, 0, 1], [0, 0, 1, 0], [0, 1, 0, 0], [1, 0, 0, 0]]))

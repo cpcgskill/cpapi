@@ -36,64 +36,18 @@ class MSelectionList(OpenMaya.MSelectionList):
         return 'MSelectionList({})'.format(names)
 
 
-def newMatrix(matrix=(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1), cls=OpenMaya.MMatrix):
-    u"""
-    创建MMatrix类的方法
-    :param matrix: None 或 MMatrix 或 （[[...], [...]...] 4*4）
-    :return: MMatrix
-    """
-    if isinstance(matrix, cls):
-        return cls(matrix)
-    if matrix is None:
-        new_obj = cls()
-        return new_obj
-    if len(matrix) == 4:
-        matrix = [t for i in matrix for t in i]
-    if len(matrix) == 16:
-        new_obj = cls()
-        ScriptUtil.createMatrixFromList(matrix, new_obj)
-        return new_obj
-    else:
-        raise RuntimeError(u"构建矩阵需要16个值")
-
-
-def newFloatMatrix(matrix=(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1), cls=OpenMaya.MMatrix):
-    return newMatrix(matrix, OpenMaya.MFloatMatrix)
-
-
 class MMatrix(OpenMaya.MMatrix):
-    @classmethod
-    def newMatrix(cls, matrix=None):
-        u"""
-        创建MMatrix类的方法
-        :param matrix: None 或 MMatrix 或 （[[...], [...]...] 4*4 或 4*3）
-        :return: MMatrix
-        """
-        if isinstance(matrix, cls):
-            return cls(matrix)
-        if matrix is None:
-            new_obj = cls()
-            return new_obj
-        if len(matrix) == 4:
-            matrix = [t for i in matrix for t in i]
-        if len(matrix) == 16:
-            new_obj = cls()
-            ScriptUtil.createMatrixFromList(matrix, new_obj)
-            return new_obj
-        else:
-            raise RuntimeError(u"构建矩阵需要16个值")
-
     def __str__(self):
-        return "Matrix%s" % str(tuple(self))
+        return "Matrix%s" % str(tuple([[self(i, t) for t in range(4)] for i in range(4)]))
 
     def __repr__(self):
         return self.__str__()
 
-    def __getitem__(self, item):
-        if isinstance(item, int):
-            return (self(item, 0), self(item, 1), self(item, 2), self(item, 3))
-        else:
-            return self(*item)
+    # def __getitem__(self, item):
+    #     if isinstance(item, int):
+    #         return (self(item, 0), self(item, 1), self(item, 2), self(item, 3))
+    #     else:
+    #         return self(*item)
 
 
 class MPoint(OpenMaya.MPoint, object):

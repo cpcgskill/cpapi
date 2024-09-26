@@ -1,1 +1,0 @@
-"C:\Program Files\Autodesk\Maya2022\bin\mayapy.exe" -m twine upload --repository testpypi dist/*

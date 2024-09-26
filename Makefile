@@ -9,8 +9,8 @@ dist: clean
 	py -m build
 
 publish: dist
-	py -m build twine upload --repository pypi dist/*
+	py -m twine upload --repository pypi dist/*
 
 
 test_publish: dist
-	py -m build twine upload --repository testpypi dist/*
+	py -m twine upload --repository testpypi dist/*
